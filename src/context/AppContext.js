@@ -12,6 +12,7 @@ export const AppContext=createContext();
 async function fetchBlogPosts(page=1){
     setloading(true);
     let url=`${baseurl}?page=${page}`;
+    console.log(url);
     try{
 const result=await fetch(url);
 const data=await result.json();
@@ -28,9 +29,10 @@ settotalpage(null);
     }
     setloading(false);
 }
-function handlepagechange(){
+function handlepagechange(page){
     setpage(page);
     fetchBlogPosts(page);
+    console.log("click");
 }
 
     const value={
